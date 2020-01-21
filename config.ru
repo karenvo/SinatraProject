@@ -14,6 +14,8 @@ require './config/environment'
 require_relative 'app/controllers/users_controller.rb'
 require_relative 'app/controllers/products_controller.rb'
 
+
+use Rack::MethodOverride
 use ProductsController
 use UsersController
 run ApplicationController

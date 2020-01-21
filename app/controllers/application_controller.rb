@@ -5,6 +5,9 @@ class ApplicationController < Sinatra::Base
         set :views, 'app/views'
       end
 
+      enable :sessions # need this to log in
+      enable :method_override
+
     get '/' do
         erb :index
     end
@@ -36,7 +39,7 @@ class ApplicationController < Sinatra::Base
         # do not let users view login page if already logged in
         if Helpers.logged_in?(session)
           Helpers.current_user(session)
-          redirect '/tweets'
+          redirect '/products'
         else
           erb :'/users/login'
         end
