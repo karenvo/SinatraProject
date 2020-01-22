@@ -1,4 +1,7 @@
 <h1>Here ya go, a list of all your products</h1>
+<% for @products.each do |product| %>
+<%= product.name %>
+<% end %>
 
 <h1>List of all Categories</h1>
 <br><a href="coffee_index">Coffee</a>
