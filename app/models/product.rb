@@ -1,6 +1,5 @@
 class Product < ActiveRecord::Base
-    belongs_to :user
-    has_many :coffees
-    has_many :teas
+    has_many :user_products
+    has_many :users, through: :user_products
     
 end
