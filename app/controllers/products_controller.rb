@@ -16,4 +16,7 @@ class ProductsController < ApplicationController
         erb :'/products/tea_index'
     end
 
+    get '/cart' do
+        
+    end
 end
