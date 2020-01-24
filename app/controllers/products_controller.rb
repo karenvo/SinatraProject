@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
 
-    # lists all of the products user has saved
-
     get '/products' do
+        @user = Helpers.current_user(session)
         @products = Product.all
         erb :'/products/index'
     end
