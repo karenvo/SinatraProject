@@ -1,8 +1,10 @@
 <h1>Hi, <%=@user.username%>!</h1>
 <h1>Here ya go, a list of all available products</h1>
-<% @products.each do |product| %>
-<br><%= product.name %>
-<% end %>
+    <% @products.each_with_index do |product, index| %>
+        <br><input type = "checkbox" name = "product_id" id="<%= product.id %>" value="<%= product.id %>">
+            <%= index + 1 %>. <%= product.name %>
+        </input>
+    <% end %>
 
 <h1>List of all Categories</h1>
 <br><a href="coffee_index">Coffee</a>

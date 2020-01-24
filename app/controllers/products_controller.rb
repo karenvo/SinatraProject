@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
     get '/products' do
-        @user = Helpers.current_user(session)
+        @user = Helpers.current_user(session) # need this to call current user.
         @products = Product.all
         erb :'/products/index'
     end
