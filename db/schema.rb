@@ -10,29 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200122032837) do
-
-  create_table "coffees", force: :cascade do |t|
-    t.string "name"
-    t.string "brand"
-    t.integer "price"
-    t.integer "product_id"
-  end
+ActiveRecord::Schema.define(version: 20200121044244) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "teas", force: :cascade do |t|
-    t.string "name"
+    t.string "category"
     t.string "brand"
     t.integer "price"
-    t.integer "product_id"
-  end
-
-  create_table "user_products", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,12 +8,12 @@ class ProductsController < ApplicationController
     end
     
     get '/coffee_index' do
-        @coffees = Coffee.all
+        @coffees = Product.where(category: "coffee")
         erb :'/products/coffee_index'    
     end
 
     get '/tea_index' do
-        @teas = Tea.all
+        @teas = Product.where(category: "tea")
         erb :'/products/tea_index'
     end
 
