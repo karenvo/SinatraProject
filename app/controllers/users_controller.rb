@@ -5,11 +5,10 @@ class UsersController < ApplicationController
         erb :'/users/index'
     end 
 
-    get '/users/:id' do
-        # finds user
-        # redirects them to id
-        @user = User.find(params[:id])
-        erb :'/users/show'
+    get '/cart' do
+        # finds user via session cookie
+        @user = Helpers.current_user(session)
+        erb :'/products/cart'
     end
     
 end

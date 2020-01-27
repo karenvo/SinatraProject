@@ -9,15 +9,21 @@ class ApplicationController < Sinatra::Base
       enable :method_override
 
     get '/' do
-        erb :index
+      if Helpers.logged_in?(session)
+        @user = Helpers.current_user(session)
+        @products = Product.all
+        erb :'/products/index'
+      else 
+        erb :'/users/signup'
+      end
     end
 
     get '/signup' do
         if Helpers.logged_in?(session)
-          Helpers.current_user(session)
+          @user = Helpers.current_user(session)
           redirect to '/products'
         else
-          erb :'/users/signup'
+          erb :index
         end
       end
     
