@@ -1,6 +1,9 @@
 <h1> Teas Page </h1>
 <% @teas.each do |tea| %>
-    <br><%= tea.name %>
+    <br><br><input type = "checkbox" name = "tea_id" id="<%= tea.id %>" value="<%= tea.id %>">
+    <%= tea.name %></input>
     <br><%= tea.brand%>
     <br>$<%= tea.price %>
 <% end %>
+<br>
+<input type="submit" value = "Add to Cart">
