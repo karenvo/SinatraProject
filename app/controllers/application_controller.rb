@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
         @products = Product.all
         erb :'/products/index'
       else 
-        erb :'/users/signup'
+        erb :'/users/login'
       end
     end
 
