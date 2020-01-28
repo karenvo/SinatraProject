@@ -1,8 +1,17 @@
 body {
     background-color: #ffcc99;
+    font-family: verdana;
 }
 
 .container {
     color: #331a00;
     text-align: center;
+}
+
+.button {
+    background-color: #FCAF50;
+    cursor: pointer;
+    border: none;
+    color: #331a00;
+    padding: 15px 32px;
 }

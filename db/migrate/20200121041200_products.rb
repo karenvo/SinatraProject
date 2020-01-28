@@ -4,7 +4,7 @@ class Products < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :category
       t.string :brand
-      t.integer :price
+      t.decimal :price, precision: 10, scale: 2
     end
   end
 end

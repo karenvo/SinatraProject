@@ -3,11 +3,12 @@
 <form action = "/products" method = "POST">
     <% @products.each_with_index do |product, index| %>
         <br><input type = "checkbox" name = "product_ids[]" id="<%= product.id %>" value="<%= product.id %>">
-            <%= index + 1 %>. <%= product.name %>
+            <%= index + 1 %>. <%= product.name %>, <%= product.brand%>
+            <br>$<%= product.price %>
         </input>
     <% end %>
     <br>
-<input type= "submit" value = "Add to Cart">
+<input type= "button" class = "button" value = "Add to Cart">
 </form>
 <h1>List of all Categories</h1>
 <br><a href="coffee_index">Coffee</a>
