@@ -20,27 +20,9 @@ class ProductsController < ApplicationController
         erb :'/products/coffee_index'    
     end
 
-    post '/coffee_index' do
-        @user = Helpers.current_user(session)
-        params[:covfefe_ids].each do |thingiemabob|
-            @user.products << Product.find(thingiemabob)
-        end
-        @user.save
-        redirect to "cart"
-    end
-
     get '/tea_index' do
         @teas = Product.where(category: "tea")
         erb :'/products/tea_index'
-    end
-
-    post '/tea_index' do
-        @user = Helpers.current_user(session)
-        params[:tea_ids].each do |thingiemabob|
-            @user.products << Product.find(thingiemabob)
-        end
-        @user.save
-        redirect to "cart"
     end
 
     get '/cart' do
@@ -63,6 +45,19 @@ class ProductsController < ApplicationController
             arr
         end 
         erb :'/products/cart'
+    end
+
+    post '/cart' do
+        @user = Helpers.current_user(session)
+        @user.products = []
+        params[:product_counts].each do |product_id, count|
+            p = Product.find(product_id)
+            (1..count.to_i).each do |x|
+                @user.products << p
+            end
+        end
+        @user.save
+        redirect to "cart"
     end
 
 end

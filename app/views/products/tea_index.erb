@@ -1,7 +1,7 @@
 <h1> Teas Page </h1>
-<form action = "/tea_index" method = "POST">
+<form action = "/products" method = "POST">
     <% @teas.each do |tea| %>
-        <br><br><input type = "checkbox" name = "tea_ids[]" id="<%= tea.id %>" value="<%= tea.id %>">
+        <br><br><input type = "checkbox" name = "product_ids[]" id="<%= tea.id %>" value="<%= tea.id %>">
         <%= tea.name %></input>
         <br><%= tea.brand%>
         <br>$<%= tea.price %>

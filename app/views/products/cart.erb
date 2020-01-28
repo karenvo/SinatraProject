@@ -1,7 +1,18 @@
 <h1><%= @user.username %>'s Cart</h1>
-<%@items.each do |item| %>
-<br><%= item[:product].name %>
-<br>$<%= item[:product].price%> x <%= item[:count]%>
-<% end %>
-
+<form action = "/cart" method = "POST">
+    <%@items.each do |item| %>
+    <br><%= item[:product].name %>
+    <br>$<%= item[:product].price%> x 
+    <select name = "product_counts[<%= item[:product].id %>]">
+        <% (0..20).each do |c| %>
+            <option value = "<%= c %>" <%= c == item[:count] ? 'selected' : '' %> >
+                <%= c %>
+            </option>
+        <% end %>
+    </select>
+    <% end %>
+    <br>
+    <br>
+    <input type = "submit" value = "Update">
+</form>
 <br><a href= "/products">Back to Product Page </a>
