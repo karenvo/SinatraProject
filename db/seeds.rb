@@ -1,6 +1,7 @@
 @user = User.create(username: "itsme", password: "lawl")
 @user1 = User.create(username: "alex", password: "volkson")
 
+
 @coffee_1 = Product.create(name: "Arabica", brand: "some type of coffee", price: 51, category: "coffee")
 @tea_1 = Product.create(name: "Lady Grey", brand: "some type of tea", price: 30, category: "tea")
 @coffee_2 = Product.create(name: "Blonde Roast", brand: "Starbucks", price: 0.50, category: "coffee")

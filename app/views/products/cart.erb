@@ -1,1 +1,7 @@
 <h1><%= @user.username %>'s Cart</h1>
+<%@items.each do |item| %>
+<br><%= item[:product].name %>
+<br>$<%= item[:product].price%> x <%= item[:count]%>
+<% end %>
+
+<br><a href= "/products">Back to Product Page </a>

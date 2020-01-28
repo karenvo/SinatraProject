@@ -1,9 +1,13 @@
 <h1> Teas Page </h1>
-<% @teas.each do |tea| %>
-    <br><br><input type = "checkbox" name = "tea_id" id="<%= tea.id %>" value="<%= tea.id %>">
-    <%= tea.name %></input>
-    <br><%= tea.brand%>
-    <br>$<%= tea.price %>
-<% end %>
-<br>
-<input type="submit" value = "Add to Cart">
+<form action = "/tea_index" method = "POST">
+    <% @teas.each do |tea| %>
+        <br><br><input type = "checkbox" name = "tea_ids[]" id="<%= tea.id %>" value="<%= tea.id %>">
+        <%= tea.name %></input>
+        <br><%= tea.brand%>
+        <br>$<%= tea.price %>
+    <% end %>
+    <br>
+    <input type="submit" value = "Add to Cart">
+</form>
+
+<br><a href= "/products">Back to Product Page </a>

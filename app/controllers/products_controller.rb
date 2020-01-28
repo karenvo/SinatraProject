@@ -7,7 +7,12 @@ class ProductsController < ApplicationController
     end
 
     post '/products' do
-        # push @user.products << 
+        @user = Helpers.current_user(session)
+        params[:product_ids].each do |thingiemabob|
+            @user.products << Product.find(thingiemabob)
+        end
+        @user.save
+        redirect to "cart"
     end
     
     get '/coffee_index' do
@@ -16,7 +21,12 @@ class ProductsController < ApplicationController
     end
 
     post '/coffee_index' do
-        # write something that will submit and update cart
+        @user = Helpers.current_user(session)
+        params[:covfefe_ids].each do |thingiemabob|
+            @user.products << Product.find(thingiemabob)
+        end
+        @user.save
+        redirect to "cart"
     end
 
     get '/tea_index' do
@@ -25,13 +35,33 @@ class ProductsController < ApplicationController
     end
 
     post '/tea_index' do
-        # submit and redirec to cart
+        @user = Helpers.current_user(session)
+        params[:tea_ids].each do |thingiemabob|
+            @user.products << Product.find(thingiemabob)
+        end
+        @user.save
+        redirect to "cart"
     end
 
     get '/cart' do
         # finds user via session cookie
         @user = Helpers.current_user(session)
-        # cart should list all products added 
+        # cart should list all products added
+        @items = @user.products.reduce([]) do |arr, p|
+            existing = arr.find do |ex|
+                ex[:product].id == p.id
+            end
+            if existing == nil
+                existing = {
+                    :product => p,
+                    :count => 1
+                }
+                arr << existing
+            else 
+                existing[:count] += 1
+            end
+            arr
+        end 
         erb :'/products/cart'
     end
 

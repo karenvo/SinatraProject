@@ -1,13 +1,14 @@
 <h1>Hi, <%=@user.username%>!</h1>
 <h1>Here ya go, a list of all available products</h1>
+<form action = "/products" method = "POST">
     <% @products.each_with_index do |product, index| %>
-        <br><input type = "checkbox" name = "product_id" id="<%= product.id %>" value="<%= product.id %>">
+        <br><input type = "checkbox" name = "product_ids[]" id="<%= product.id %>" value="<%= product.id %>">
             <%= index + 1 %>. <%= product.name %>
         </input>
     <% end %>
     <br>
-<input type="submit" value = "Add to Cart">
-
+<input type= "submit" value = "Add to Cart">
+</form>
 <h1>List of all Categories</h1>
 <br><a href="coffee_index">Coffee</a>
 <br><a href="tea_index">Tea</a>
