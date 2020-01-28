@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20200127090142) do
     t.string "name"
     t.string "category"
     t.string "brand"
-    t.decimal "price", precision: 10, scale: 2
+    t.decimal "price", precision: 10, scale: 3
     t.integer "owner_id"
   end
 
