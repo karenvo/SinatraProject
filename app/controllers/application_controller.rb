@@ -25,6 +25,7 @@ class ApplicationController < Sinatra::Base
         else
           erb :index
         end
+        erb :'/users/signup'
       end
     
       post '/signup' do
