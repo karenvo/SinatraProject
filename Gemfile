@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'activerecord', '5.1', :require => 'active_record'
+gem 'activerecord', '7.0.3.1', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem "database_cleaner-active_record", git: 'https://github.com/DatabaseCleaner/database_cleaner-active_record.git'
 gem 'sinatra'
